@@ -6,6 +6,13 @@ import url from 'url';
 
 const fileUrl = require('file-url');
 
+//const IpfsHttpClient = require("ipfs-http-client");
+//const { globSource } = IpfsHttpClient;
+
+import Ipfs from 'ipfs';
+import IpfsHttpClient from 'ipfs-http-client';
+//const { globSource } = IpfsHttpClient;
+
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 
