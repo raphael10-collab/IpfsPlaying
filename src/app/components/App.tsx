@@ -1,39 +1,7 @@
+import all from 'it-all';
 import React, { useState, useEffect } from 'react';
 import { hot } from 'react-hot-loader';
 
-import Dndelement from './dndelement';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-
-//import { MUIGridLayout } from '../../ui/mui/MUIGridLayout';
-//import Divider from '@material-ui/core/Divider';
-import { makeStyles } from '@material-ui/core/styles';
-
-
-
-const items = [
-    <div key={0}>first</div>,
-    <div key={1}>second</div>
-];
-
-const useStyles = makeStyles((theme) => ({
-  container: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(12, 1fr)',
-    gridGap: theme.spacing(3),
-  },
-  paper: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-  },
-  divider: {
-    border: '0.2px dotted gray',
-    margin: theme.spacing(2, 0),
-  },
-}));
 
 
 declare interface Window {
@@ -49,25 +17,27 @@ declare interface Window {
     electronIpcOnce: (channel: string, listener: (event: any, ...arg: any) => void) => void;
     electronIpcRemoveListener:  (channel: string, listener: (event: any, ...arg: any) => void) => void;
     electronIpcRemoveAllListeners: (channel: string) => void;
-  }
+  },
+
 }
 
 // https://github.com/electron/electron/issues/21437#issuecomment-573522360
 
 
-const getFileExtension = (filepath: string): string => {
-  let baseName = filepath.split(/[\\/]/).pop(); // extracts file name from full path
-  let pos = baseName.lastIndexOf("."); // gets the last position of `.`
-  if (baseName === "" || pos < 1) { // if the file name is empty or ...
-    return ""; // the dot not found (-1) or comes first (0)
-  }
-  else {
-    return baseName.slice(pos + 1); // extracts extension ignoring "."
-  }
-}
+const App = () => {
 
-function App() {  
   const [win, setWin] = useState("A-Type");
+
+  //const { ipfs, ipfsInitError } = useIpfsFactory();
+
+  //const [ipfsNodeState, setIpfsNodeState] = useState({
+    //id: null,
+    //agentVersion: null,
+    //protocolVersion: null,
+    //addedFileHash: null,
+    //addedFileContents: null
+  //});
+  //const id = useIpfs(ipfs, 'id');
 
 
   let filePath_1 = '/home/marco/Downloads/Art21Costituzione.jpg';
@@ -88,8 +58,6 @@ function App() {
 
 
   function handleSecondWindowType (fp: string) {
-    let fileExtens = getFileExtension(fp);
-    if (fileExtens.includes('jpg')) {
       setWin("A-Type");
       // https://stackoverflow.com/questions/53753181/webcontents-send-and-ipcrenderer-on-not-working
       //window.api.send('open-type-A-window', '');
@@ -100,8 +68,11 @@ function App() {
           //window.api.electronIpcSend('window-A-channel', filePath_1);
         //}
       //});
-    }
   }
+
+  // https://github.com/ipfs/js-ipfs/blob/master/examples/browser-webpack/src/components/app.js
+
+  // https://proto.school/regular-files-api/03
 
   useEffect(() => {
     //handleSecondWindowType(filePath_1);
@@ -128,7 +99,28 @@ function App() {
     }
   }
 
-    const classes = useStyles();
+  const Title = ({ children }) => {
+    return (
+      <h2 className='f5 ma0 pb2 tracked aqua fw4 montserrat'>{children}</h2>
+    )
+  }
+
+  const IpfsId = (props) => {
+    if (!props) return null
+    return (
+      <section className='bg-snow mw7 center mt5'>
+        <h1 className='f3 fw4 ma0 pv3 aqua montserrat tc' data-test='title'>Connected to IPFS</h1>
+        <div className='pa4'>
+          {['id', 'agentVersion'].map((key) => (
+            <div className='mb4' key={key}>
+              <Title>{key}</Title>
+              <div className='bg-white pa2 br2 truncate monospace' data-test={key}>{props[key]}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )
+  }
 
     return (
       <div className='container'>
@@ -137,16 +129,11 @@ function App() {
         </h2>
 
 
-              <DndProvider backend={HTML5Backend}>
-                <Dndelement />
-              </DndProvider>
-
-
-              <p>
-                <button id="sendFilePath" onClick={() => {
-                  sendFilePathFunct();
-                }}>Send File Path to the Second Window</button>
-              </p>
+        <p>
+          <button id="sendFilePath" onClick={() => {
+            sendFilePathFunct();
+          }}>Send File Path to the Second Window</button>
+        </p>
 
 
 

@@ -4,7 +4,7 @@ import path from 'path';
 import url from 'url';
 
 
-const fileUrl = require('file-url');
+//const fileUrl = require('file-url');
 
 //const IpfsHttpClient = require("ipfs-http-client");
 //const { globSource } = IpfsHttpClient;
@@ -12,6 +12,53 @@ const fileUrl = require('file-url');
 import Ipfs from 'ipfs';
 import IpfsHttpClient from 'ipfs-http-client';
 //const { globSource } = IpfsHttpClient;
+
+
+const ops = async () => {
+  const node = await Ipfs.create({ repo: String(Math.random() + Date.now()) });
+  console.log('Ipfs node is ready');
+
+  // https://github.com/ipfs/js-ipfs/blob/master/docs/core-api/FILES.md#example
+  // https://github.com/ipfs/js-ipfs/blob/master/docs/core-api/FILES.md#importing-files-from-the-file-system
+  // https://proto.school/regular-files-api/03
+
+  //const files = [
+    //{
+      //path: '/home/marco/Downloads/Art21Costituzione.jpg',
+      //content: 'Art21Costituzione'
+    //},
+    //{
+      //path: '/home/marco/Downloads/VitaminaCAlimenti.pdf',
+      //content: 'VitaminaCAlimenti'
+    //}
+  //];
+
+  // https://proto.school/regular-files-api/03
+
+  //let results = [];
+  //for await (const result of node.addAll(files)) {
+    //results.push(result);
+  //}
+  //results.map(result => console.log(result));
+
+  //let results = await all(node.addAll(files));
+  //results.map(result => console.log(result));
+
+  //const addOptions = {
+    //pin: true,
+    //wrapWithDirectory: true,
+    //timeout: 10000
+  //};
+
+  //for await (const file of node.addAll(globSource('/home/marco/Downloads', globSourceOptions), addOptions)) {
+    //console.log(file);
+  //}
+}
+ops();
+
+
+
+
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
@@ -123,6 +170,8 @@ const createWindow = (): void => {
   // Show window when its ready to
   mainWindow.on('ready-to-show', () => mainWindow.show());
 
+  //ops();
+
 };
 
 app.on('ready', createWindow);
@@ -187,9 +236,10 @@ let filepathUrl_A = '';
 
 ipcMain.on("window-A-channel", (event, args) => {
   console.log("ipcMain.on-window-A-channel-args(mainProcess): ", args);
-  filepathUrl_A = fileUrl(args[0]);
-  console.log("ipcMain.on-filepathUrl_A = fileUrl(args[0]) : ", filepathUrl_A);
-  WindowTypeA.webContents.send("window-A-channel", filepathUrl_A);
+  //filepathUrl_A = fileUrl(args[0]);
+  //console.log("ipcMain.on-filepathUrl_A = fileUrl(args[0]) : ", filepathUrl_A);
+  //WindowTypeA.webContents.send("window-A-channel", filepathUrl_A);
+  WindowTypeA.webContents.send("window-A-channel", args[0]);
 });
 
 ipcMain.on("from-window-A", (event, args) => {

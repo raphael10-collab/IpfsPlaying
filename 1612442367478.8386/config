@@ -1,0 +1,85 @@
+{
+  "Addresses": {
+    "Swarm": [
+      "/ip4/0.0.0.0/tcp/4002",
+      "/ip4/127.0.0.1/tcp/4003/ws"
+    ],
+    "Announce": [],
+    "API": "/ip4/127.0.0.1/tcp/5002",
+    "Gateway": "/ip4/127.0.0.1/tcp/9090",
+    "RPC": "/ip4/127.0.0.1/tcp/5003",
+    "Delegates": [
+      "/dns4/node0.delegate.ipfs.io/tcp/443/https",
+      "/dns4/node1.delegate.ipfs.io/tcp/443/https",
+      "/dns4/node2.delegate.ipfs.io/tcp/443/https",
+      "/dns4/node3.delegate.ipfs.io/tcp/443/https"
+    ]
+  },
+  "Discovery": {
+    "MDNS": {
+      "Enabled": true,
+      "Interval": 10
+    },
+    "webRTCStar": {
+      "Enabled": true
+    }
+  },
+  "Bootstrap": [
+    "/ip4/104.131.131.82/tcp/4001/p2p/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ",
+    "/dnsaddr/bootstrap.libp2p.io/p2p/QmNnooDu7bfjPFoTZYxMNLWUQJyrVwtbZg5gBMjTezGAJN",
+    "/dnsaddr/bootstrap.libp2p.io/p2p/QmbLHAnMoJPWSCR5Zhtx6BHJX9KiKNN6tpvbUcqanj75Nb",
+    "/dnsaddr/bootstrap.libp2p.io/p2p/QmZa1sAxajnQjVM8WjWXoMbmPd7NsWhfKsPkErzpm9wGkp",
+    "/dnsaddr/bootstrap.libp2p.io/p2p/QmQCU2EcMqAqQPR2i9bChDtGNJchTbq5TbXJJ16u19uLTa",
+    "/dnsaddr/bootstrap.libp2p.io/p2p/QmcZf59bWwK5XFi76CZX8cbJ4BhTzzA3gU1ZjYZcYW3dwt",
+    "/dns4/node0.preload.ipfs.io/tcp/443/wss/p2p/QmZMxNdpMkewiVZLMRxaNxUeZpDUb34pWjZ1kZvsd16Zic",
+    "/dns4/node1.preload.ipfs.io/tcp/443/wss/p2p/Qmbut9Ywz9YEDrz8ySBSgWyJk41Uvm2QJPhwDJzJyGFsD6",
+    "/dns4/node2.preload.ipfs.io/tcp/443/wss/p2p/QmV7gnbW5VTcJ3oyM2Xk1rdFBJ3kTkvxc87UFGsun29STS",
+    "/dns4/node3.preload.ipfs.io/tcp/443/wss/p2p/QmY7JB6MQXhxHvq7dBDh4HpbH29v4yE9JRadAVpndvzySN"
+  ],
+  "Pubsub": {
+    "Router": "gossipsub",
+    "Enabled": true
+  },
+  "Swarm": {
+    "ConnMgr": {
+      "LowWater": 200,
+      "HighWater": 500
+    },
+    "DisableNatPortMap": false
+  },
+  "Routing": {
+    "Type": "none"
+  },
+  "Identity": {
+    "PeerID": "QmP1VF15EKvMgf4TG6zfg7EEzcoQoy86m3DZmwxKTpKwpg",
+    "PrivKey": "CAASpwkwggSjAgEAAoIBAQCfookpNjqhBtMI14uGKFtsaZK83mKnjzFcwjC7QiGjdYdCaQdQNM3XJrt5oOZrbe8SxYtdX5IHX0ifZsIEUcYv4LVb2Hsd1XzQt6tLB00kgnasFnZKg3ZSOUpWhF+GwPv9wi0yG0CvuaKjPyLGcF8GCLC4+NNiXmOSCYyhffyUqx8ZOYX3XM12MG7jFcsxBsouXk+JqXUYfjrYoaGvW/IvCDtwPECnlVRCVT4/MRI5yAGzm4GFah66Ic3Gdcbcs4nUBTOfCA8+vsm/jemqvrGhgBkVaPJGdF4QPO7ShSNlmi2SmayvvhBfMM5nsHJl1kFFFi7nxE1zVgiJyHX1QSsTAgMBAAECggEAUuhCXkII3xrBPcVcdFe/a6XFDQxepnGLDIbaclbdS5y9m/MaVkCma0h1c6zqHv9gfBpW0C7Tk7qb6BWhTEcALFuDNWlQP+VhxrCtaPEo0n5jjeq4kuiF6hxRDHABgOX3ugpAGNbomJtL6Ybf07oG0AZxag/pERy+j9kfzbu2E6ucMd6F8+S9MyGWgInpmrp2KLJrzI6ZcB78Y/qXLLzhdou4r1vTOY03VcN3X6ZwxwhMRQ9ZhjyK3JORgN+8xtgrfAGiSEcwuvguFD1PHGqGYmm0GLyT1xWSnMDemYHnGo+4TfOQmKhkxOj9gTm7wUV/rJdf75hNhKVjZ2aJI9jFSQKBgQDnr+gANSqJp5d6FTB3uqS1BJv0ZBKs94sduEV4p8PSj8PRiKLx2EZdiE3dzOtSy6jLfSbqRy0/MYYLHaQP6oVVjZn0tskt1Nb0Y3qCaIDf/DXHFsp28Vw9XR+7xA1+eguP3Y7bnKTjNo7M2pXQzwieTG+HPoQDvB7pNjTgWm7yfwKBgQCwYwCzYwCjnQbUQF+PV3SSGNbwGtprkSuzG4JKr0eR1haMKcv/HK77CVd2NFQ6/ir672uZOWx3fdmPzC6kW1AGUa1ki0mHz+bRVSkupBpXwdM/d21ud1PookztLnV5N+QvoQWQESSVOFqgYgFvbCYC7SpsQE4/Goa78zj27yCVbQKBgEq9zqQygpSBwjYaG9akGXpkEEOY/QVbnj9qMM8pn9yPkGZKI/bNBHYsAKKq9sdw9/UdXK57Y7ddLJbtav3PdFATLDVruh7U6LtSVDU5rUmUvWyKh6ozVsRdBF24c3n3uT8iBHIIaJD8Crk/UtFX2LnogpooqsHhsD8fw5MU2XHVAoGBAJRGZWxnKT5g3kDG7I3fAstdvjGRIVOTcZza3yhROGTMB6BD8oy+XAoDzFY9nyEIULEpWtYvg5LfZGiRSBQ5/oeRWaVPwbw9dNc8M6ZVpR9ofGC50HAwN4U0Cl7H01DXPycawUZeYtZdzTFNsc8spreHD0Z4uE4ryl9tEtHiKw3xAoGABlOdgFrndCvyEj4RB+t9i7quq87U03sRqQf9xHGnO3ElQZHtrMSc1naylh6unBcJuRQ+SReLbcshs5FGZet8qkgBUdOqVD0pzJUiK+Q/IcC0hR7e53KWz3xNqMS4gg4qFUa2DtWUYvf45NHNgCgR9lieny3ryMiscCAW2W9TmEA="
+  },
+  "datastore": {
+    "Spec": {
+      "type": "mount",
+      "mounts": [
+        {
+          "mountpoint": "/blocks",
+          "type": "measure",
+          "prefix": "flatfs.datastore",
+          "child": {
+            "type": "flatfs",
+            "path": "blocks",
+            "sync": true,
+            "shardFunc": "/repo/flatfs/shard/v1/next-to-last/2"
+          }
+        },
+        {
+          "mountpoint": "/",
+          "type": "measure",
+          "prefix": "leveldb.datastore",
+          "child": {
+            "type": "levelds",
+            "path": "datastore",
+            "compression": "none"
+          }
+        }
+      ]
+    }
+  }
+}
