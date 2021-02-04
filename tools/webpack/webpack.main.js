@@ -13,5 +13,8 @@ module.exports = {
     alias: require('./webpack.aliases'),
   },
   // https://github.com/electron/electron/issues/9920
-  target: 'electron-main'
+  target: 'electron-main',
+  externals: {
+    "pouchdb": "require('pouchdb')"
+  }
 };

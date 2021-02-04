@@ -11,12 +11,12 @@ import url from 'url';
 
 import Ipfs from 'ipfs';
 import IpfsHttpClient from 'ipfs-http-client';
-//const { globSource } = IpfsHttpClient;
+const { globSource } = IpfsHttpClient;
 
 
 const ops = async () => {
   const node = await Ipfs.create({ repo: String(Math.random() + Date.now()) });
-  console.log('Ipfs node is ready');
+  //console.log('Ipfs node is ready');
 
   // https://github.com/ipfs/js-ipfs/blob/master/docs/core-api/FILES.md#example
   // https://github.com/ipfs/js-ipfs/blob/master/docs/core-api/FILES.md#importing-files-from-the-file-system
